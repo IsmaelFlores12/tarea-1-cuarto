@@ -14,12 +14,20 @@ namespace tarea_1_cuarto
         }
         static void Main(string[] args)
         {
-            acciones2 acciones = new acciones2();
+            Acciones acciones = new Acciones();
             while (true)
             {
                 switch (menu())
                 {
                     case Menu.consultar:
+                        var lista = acciones.consultar();
+                        foreach(var l in lista)
+                        {
+                            Console.WriteLine($"nombre: {l.Nombre}");
+                            Console.WriteLine($"edad: {l.Edad}");
+                            Console.WriteLine($"matricula: {l.Matricula}");
+
+                        }
                         
                         break;
                     case Menu.agregar:
@@ -29,13 +37,25 @@ namespace tarea_1_cuarto
                         int edad=Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Matricula");
                         int matricula=Convert.ToInt32(Console.ReadLine());
+                        acciones.agregar(nombre, edad, matricula);
                         
                         break;
                     case Menu.actualizar:
-                        
-                        
+                        Console.WriteLine("Dame matricula");
+                        int m =Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Dame nuevo nombre");
+                        string n = Console.ReadLine();
+                        Console.WriteLine("Dame nueva edad");
+                        int e = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Dame nueva matricula");
+                        int ma = Convert.ToInt32(Console.ReadLine());
+                        acciones.Actualizar(m,n,e,ma);
                         break;
                     case Menu.eliminar:
+                        Console.WriteLine("ingresa matricula");
+                        int mat =Convert.ToInt32(Console.ReadLine());
+                        acciones.Elimminar(mat);
+
                         break;
                     default:
                         break;

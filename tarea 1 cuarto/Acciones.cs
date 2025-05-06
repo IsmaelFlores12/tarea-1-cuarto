@@ -14,19 +14,15 @@ namespace tarea_1_cuarto
             new Alumno("Sergio",23,112599),
             new Alumno("Gustavo",22,112545)
         };
-
-
-        
-
-        void IAcciones.Actualizar(int matriculaActual, string NombreNuevo, int EdadNueva, int MatriculaNueva)
+        public void Actualizar(int matriculaActual, string NombreNuevo, int EdadNueva, int MatriculaNueva)
         {
-            var Actualizar = alumnoList.FirstOrDefault(x=> x.Matricula==matriculaActual);
+            var Actualizar = alumnoList.FirstOrDefault(x => x.Matricula == matriculaActual);
             if (Actualizar != null)
             {
-                Actualizar.Nombre=NombreNuevo;
-                Actualizar.Edad=EdadNueva;
-                Actualizar.Matricula=MatriculaNueva;
-                
+                Actualizar.Nombre = NombreNuevo;
+                Actualizar.Edad = EdadNueva;
+                Actualizar.Matricula = MatriculaNueva;
+
             }
             else
             {
@@ -34,17 +30,17 @@ namespace tarea_1_cuarto
             }
         }
 
-        void IAcciones.agregar(string nombre, int edad, int matricula)
+        public void agregar(string nombre, int edad, int matricula)
         {
             alumnoList.Add(new Alumno(AL.Nombre = nombre, AL.Edad = edad, AL.Matricula = matricula));
         }
 
-        List<Alumno> IAcciones.consultar()
+        public List<Alumno> consultar()
         {
             return alumnoList;
         }
 
-        void IAcciones.Elimminar(int matricula)
+        public void Elimminar(int matricula)
         {
             var Eliminar = alumnoList.FirstOrDefault(x => x.Matricula == matricula);
             if (Eliminar != null)
@@ -58,7 +54,7 @@ namespace tarea_1_cuarto
             }
         }
 
-        void IAcciones.ExportarExcel()
+        public void ExportarExcel()
         {
             throw new NotImplementedException();
         }
